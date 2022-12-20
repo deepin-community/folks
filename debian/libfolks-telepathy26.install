@@ -1,0 +1,2 @@
+usr/lib/*/folks/*/backends/telepathy/*.so
+usr/lib/*/libfolks-telepathy.so.*

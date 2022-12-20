@@ -1,0 +1,4 @@
+usr/include/folks/folks-dummy.h
+usr/lib/*/libfolks-dummy.so
+usr/lib/*/pkgconfig/folks-dummy.pc
+usr/share/vala/vapi/folks-dummy.*

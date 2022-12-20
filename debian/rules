@@ -1,0 +1,37 @@
+#!/usr/bin/make -f
+# -*- makefile -*-
+
+# Uncomment this to turn on verbose mode.
+#export DH_VERBOSE=1
+
+export DEB_BUILD_MAINT_OPTIONS = hardening=+all
+export DEB_LDFLAGS_MAINT_APPEND = -Wl,-O1 -Wl,-z,defs
+export DPKG_GENSYMBOLS_CHECK_LEVEL = 4
+
+BUILD_DOC:=-Ddocs=false
+# only build if the profile nodoc is NOT set
+ifeq ($(filter nodoc, $(DEB_BUILD_OPTIONS)),)
+# and valadoc is installed
+ifneq ($(shell which valadoc),)
+  BUILD_DOC:=-Ddocs=true
+endif
+endif
+
+%:
+	dh $@
+
+override_dh_auto_configure:
+	dh_auto_configure -- -Deds_backend=true \
+		-Dimport_tool=true -Dinspect_tool=true -Dzeitgeist=false \
+		-Dofono_backend=false -Dbluez_backend=false $(BUILD_DOC)
+
+override_dh_makeshlibs:
+	dh_makeshlibs -plibfolks26 -X/backends/
+	dh_makeshlibs -plibfolks-telepathy26 -X/backends/
+	dh_makeshlibs -plibfolks-eds26 -X/backends/
+	dh_makeshlibs -plibfolks-dummy26 -X/backends/
+
+# Increase timeout multiplier
+# Ignore test failures since the tests don't pass reliably yet
+override_dh_auto_test:
+	-dh_auto_test -- -t 10

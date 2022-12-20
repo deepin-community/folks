@@ -1,0 +1,2 @@
+usr/lib/*/folks/*/backends/eds/*.so
+usr/lib/*/libfolks-eds.so.*

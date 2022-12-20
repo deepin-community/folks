@@ -1,0 +1,658 @@
+folks (0.15.3-deepin1) unstable; urgency=medium
+
+  * Rebuild
+
+ -- Deepin Packages Builder <packages@deepin.org>  Fri, 11 Nov 2022 17:57:03 +0800
+
+folks (0.15.3-4) unstable; urgency=medium
+
+  * debian/rules: Make build-tests non-fatal for now and
+    increase timeout multiplier
+
+ -- Jeremy Bicha <jbicha@debian.org>  Sun, 24 Oct 2021 10:00:56 -0400
+
+folks (0.15.3-3) unstable; urgency=medium
+
+  * Cherry-pick patch to fix build with latest evolution-data-server
+    (Closes: #997207)
+  * Bump debhelper-compat to 13
+  * Build-Depend on dh-sequence-gir
+  * debian/rules: Drop unneeded -Wl,--as-needed
+  * debian/rules: Enable all hardening flags
+  * debian/rules: Run dh_auto_test
+  * debian/control.in: Build-Depend on evolution-data-server for build tests
+
+ -- Jeremy Bicha <jbicha@debian.org>  Sun, 24 Oct 2021 08:52:33 -0400
+
+folks (0.15.3-2) unstable; urgency=medium
+
+  * Upload to unstable
+
+ -- Laurent Bigonville <bigon@debian.org>  Sun, 05 Sep 2021 22:09:18 +0200
+
+folks (0.15.3-1) experimental; urgency=medium
+
+  * New upstream release
+  * debian/control.in: Bump evolution-data-server-dev and libglib2.0-dev
+    (build-)dependency
+  * Bump the soname from 25 to 26
+  * debian/watch: Bump version to 4
+
+ -- Laurent Bigonville <bigon@debian.org>  Wed, 18 Aug 2021 16:09:56 +0200
+
+folks (0.14.0-1) unstable; urgency=medium
+
+  * New upstream release
+  * debian/copyright: Adjust the Copyright holders (Closes: #956286)
+
+ -- Laurent Bigonville <bigon@debian.org>  Mon, 20 Apr 2020 09:35:30 +0200
+
+folks (0.13.2-2) unstable; urgency=medium
+
+  * debian/control.in: Mark the -dev packages as multi-arch same
+  * Build the documentation and create new -doc packages (Closes: #679740)
+
+ -- Laurent Bigonville <bigon@debian.org>  Sun, 08 Mar 2020 21:45:34 +0100
+
+folks (0.13.2-1) unstable; urgency=medium
+
+  [ Simon McVittie ]
+  * d/gbp.conf: Align with other GNOME Team packages
+  * New upstream release
+  * Update build-dependencies
+  * Drop migration path from -dbg packages older than oldstable
+  * Use debhelper-compat build-dependency instead of debian/compat
+  * Use versioned copyright format URI.
+  * Update copyright file header to use current field names (Name =>
+    Upstream-Name, Maintainer => Upstream-Contact)
+  * Set upstream metadata fields: Bug-Database, Bug-Submit, Repository,
+    Repository-Browse.
+  * Remove obsolete Upstream-Contact
+  * Standards-Version: 4.5.0 (no changes required)
+  * Install new GConf -> gsettings conversion
+  * Set Rules-Requires-Root to no
+  * Add Provides for gir1.2-folkstelepathy-0.6 etc.
+
+ -- Laurent Bigonville <bigon@debian.org>  Sun, 08 Mar 2020 21:14:34 +0100
+
+folks (0.13.1-1) unstable; urgency=medium
+
+  * New upstream version 0.13.1
+  * Acknowledge NMU, thanks Simon (Closes: #941472)
+  * debian/control: Bump Standards-Version to 4.4.1 (no further changes)
+  * The package now uses meson, adjust the build-dependencies and the options
+    passed to the configure
+  * Drop d/p/eds-Adapt-to-libebook-API-changes.patch, applied upstream
+  * debian/folks-common.install: Drop GConf to gsettings convert file
+  * debian/*.symbols: Drop private symbols not exported anymore
+  * debian/watch: Use https://
+  * debian/control: Bump folks-tools priority to option, extra is deprecated
+  * Install .typelib files in the multiarch directory
+  * debian/*.symbols: Add the Build-Depends-Package field
+  * Bump debhelper compatibility to 12
+  * debian/control: Update Vcs-* fields to the gnome-team repository
+  * Move the package under the GNOME team maintenance and use the gnome dh
+    sequence
+
+ -- Laurent Bigonville <bigon@debian.org>  Sat, 02 Nov 2019 13:49:28 +0100
+
+folks (0.11.4-1.2) unstable; urgency=medium
+
+  * Non-maintainer upload
+  * Upload to unstable, now that evolution-data-server 3.34.0-3 has been
+    uploaded to unstable
+  * Temporarily disable zeitgeist support, as discussed with
+    Emilio Pozuelo Monfort and Laurent Bigonville on #debian-gnome,
+    to decouple the GNOME 3.34 transitions from getting a version of
+    zeitgeist that is compatible with Vala 0.46
+
+ -- Simon McVittie <smcv@debian.org>  Tue, 01 Oct 2019 08:56:49 +0100
+
+folks (0.11.4-1.1) experimental; urgency=medium
+
+  * Non-maintainer upload
+
+  [ Iain Lane ]
+  * debian/patches/eds-Adapt-to-libebook-API-changes.patch: Cherry-pick. Build
+    with EDS 3.33.2 (Closes: #934745)
+
+  [ Simon McVittie ]
+  * Update Vcs-*
+
+ -- Simon McVittie <smcv@debian.org>  Wed, 11 Sep 2019 11:57:44 +0100
+
+folks (0.11.4-1) unstable; urgency=medium
+
+  [ Emilio Pozuelo Monfort ]
+  * Build-depend on libreadline-dev rather than libreadline6-dev.
+    Closes: #857515.
+
+  [ Laurent Bigonville ]
+  * New upstream release.
+  * debian/control: Bump Standards-Version to 4.0.0 (no further changes)
+
+ -- Laurent Bigonville <bigon@debian.org>  Mon, 03 Jul 2017 18:59:12 +0200
+
+folks (0.11.3-2) unstable; urgency=medium
+
+  * libfolks-dummy-dev: add missing dependency on libfolks-dummy25.
+    Closes: #857160.
+
+ -- Emilio Pozuelo Monfort <pochu@debian.org>  Sat, 11 Mar 2017 16:50:57 +0100
+
+folks (0.11.3-1) unstable; urgency=medium
+
+  * New upstream release.
+  * debian/control: Use https:// for the Vcs-* URL's
+
+ -- Laurent Bigonville <bigon@debian.org>  Sun, 09 Oct 2016 21:08:08 +0200
+
+folks (0.11.2-1) unstable; urgency=medium
+
+  * New upstream release.
+  * debian/control: Bump Standards-Version to 3.9.8 (no further changes)
+  * debian/control, debian/rules: Drop -dbg packages and rely on automatic
+    -dbgsym ones.
+
+ -- Laurent Bigonville <bigon@debian.org>  Fri, 22 Apr 2016 18:06:46 +0200
+
+folks (0.11.1-2) unstable; urgency=medium
+
+  * Upload to unstable.
+
+ -- Emilio Pozuelo Monfort <pochu@debian.org>  Fri, 12 Jun 2015 10:37:22 +0200
+
+folks (0.11.1-1) experimental; urgency=medium
+
+  * New upstream release.
+  * Update build and runtime dependencies.
+  * Add new symbols.
+  * Bump Standards-Version to 3.9.6.
+  * Upload to experimental.
+
+ -- Emilio Pozuelo Monfort <pochu@debian.org>  Mon, 01 Jun 2015 17:30:19 +0200
+
+folks (0.10.0-1) unstable; urgency=medium
+
+  * New upstream version 0.10.0
+  * Split the dummy backend into a new libfolks-dummy25 package, having them
+    installed with libfolks25 caused it to always get loaded at runtime.
+    Thanks Ken VanDine. (Closes: #760404)
+
+ -- Iain Lane <laney@debian.org>  Tue, 16 Sep 2014 13:11:13 +0100
+
+folks (0.9.8-1) unstable; urgency=medium
+
+  * New upstream version 0.9.8, fixing bugs-
+    + Fail to unprepare stores
+    + empathy and gnome contacts crash when bt phone available
+
+ -- Iain Lane <laney@debian.org>  Tue, 19 Aug 2014 11:49:07 +0100
+
+folks (0.9.7.1-1) unstable; urgency=medium
+
+  * New upstream version 0.9.7.1
+    + Fixes errors with the vala bindings.
+
+ -- Iain Lane <laney@debian.org>  Wed, 25 Jun 2014 10:44:38 +0100
+
+folks (0.9.7-1) unstable; urgency=medium
+
+  * New upstream release 0.9.7
+  * 0001-Reduce-libebook-dependency-when-not-compiling-the-Bl.patch
+    0002-Fixed-EDS-persona-store-display-name-value.patch
+    0003-Replaced-use-of-EVCard.remove_attribute-to-EVCard.re.patch
+    0004-backends-Fix-calls-to-ImDetails.normalise_im_address.patch
+    0005-core-Fix-FOLKS_DISABLE_LINKING.patch
+    0006-eds-Only-use-enabled-ESources-from-EDS.patch
+    0007-eds-Fix-crash-on-handling-invalid-birthday-dates-fro.patch
+    0008-telepathy-Fix-crash-on-handling-invalid-birthday-dat.patch
+    0009-tracker-Fix-crash-on-handling-invalid-birthday-dates.patch: Drop all
+    Debian patches which have been applied upstream in this release.
+  * Install the dummy backend.
+  * Adjust the symbols files for this release
+
+ -- Iain Lane <laney@debian.org>  Mon, 23 Jun 2014 12:44:09 +0100
+
+folks (0.9.6-4) unstable; urgency=medium
+
+  * Team upload
+  * Add patch from Ubuntu via upstream to fix FOLKS_DISABLE_LINKING
+  * Add patches from upstream to fix crashes on invalid birthday dates
+    (Closes: #744078)
+  * Add patch from upstream to avoid using disabled e-d-s ESources
+
+ -- Simon McVittie <smcv@debian.org>  Wed, 14 May 2014 11:18:48 +0100
+
+folks (0.9.6-3) unstable; urgency=medium
+
+  * d/p/0001-backends-Fix-calls-to-ImDetails.normalise_im_address.patch:
+    + Patch from upstream, fix build with vala 0.24.
+
+ -- Emilio Pozuelo Monfort <pochu@debian.org>  Fri, 04 Apr 2014 19:32:59 +0200
+
+folks (0.9.6-2) unstable; urgency=low
+
+  * Team upload
+  * Disable fatal deprecation warnings
+  * Add patch to reduce dependency on evolution-data-server: it's only
+    the BlueZ backend, which we don't compile, that needs a newer version
+    than 3.8.
+  * Pull in some patches from upstream that were applied in Ubuntu:
+    + fix display-names in the EDS persona store (GNOME #726787)
+    + fix unsetting favourite contacts (GNOME #724809)
+    + do not fix GNOME #724058 for now, it's new API and should
+      be received in an upstream release instead
+
+ -- Simon McVittie <smcv@debian.org>  Wed, 26 Mar 2014 13:38:31 +0000
+
+folks (0.9.6-1) experimental; urgency=medium
+
+  * New upstream release
+    - debian/control: Adjust the build-dependencies
+    - Adjust the symbols files
+  * Drop d/p/Generate-backends-GIR-files-using-valac-rather.patch: Applied
+    upstream
+  * Explicitly disable bluez backend
+  * debian/control:
+    - Update Homepage URL
+    - Bump Standards-Version to 3.9.5 (no further changes)
+
+ -- Laurent Bigonville <bigon@debian.org>  Fri, 27 Dec 2013 17:11:39 +0100
+
+folks (0.9.5-1) experimental; urgency=low
+
+  * New upstream release
+  * Update build-depends
+  * d/p/Generate-backends-GIR-files-using-valac-rather.patch
+    + Added. Fix build (From upstream git)
+  * Install all introspection files
+  * debian/libfolks25.symbols: Updated
+
+ -- Sjoerd Simons <sjoerd@debian.org>  Sat, 26 Oct 2013 14:02:09 +0200
+
+folks (0.9.2-2) unstable; urgency=low
+
+  * Team upload.
+  * Upload to unstable.
+
+ -- Andreas Henriksson <andreas@fatal.se>  Tue, 17 Sep 2013 23:09:37 +0200
+
+folks (0.9.2-1) experimental; urgency=low
+
+  [ Emilio Pozuelo Monfort ]
+  * debian/control:
+    + Switch valac-0.18 build dependency to valac since the default
+      valac is new enough now. Closes: #709707.
+    + Drop unneeded libvala-0.18-dev build dependency.
+
+  [ Laurent Bigonville ]
+  * New upstream release
+    - Bump libebook1.2-dev and libebook-contacts1.2-dev build-dep to 3.8.1
+    - Adjust the .symbols files
+  * debian/control:
+    - Use canonical URL for the VCS fields
+    - Add missing separator in libfolks-dev Depends field
+    - Bump Standards-Version to 3.9.4 (no further changes)
+  * Convert to multiarch policy, bump debhelper compatibility to 9 and get the
+    hardening flags for free
+  * debian/rules: Explicitly pass --enable-zeitgeist to the configure
+  * debian/control: Update Homepage field to the GNOME wiki page
+  * debian/rules: Properly set extra LDFLAGS to not override hardening ones
+  * debian/gbp.conf: Re-enable pristine-tar metadata generation
+
+ -- Laurent Bigonville <bigon@debian.org>  Sat, 08 Jun 2013 16:59:48 +0200
+
+folks (0.9.1-2) experimental; urgency=low
+
+  * debian/libfolks-eds25.symbols
+    debian/libfolks25.symbols: Remove debian version from symbols file
+
+ -- Sjoerd Simons <sjoerd@debian.org>  Sat, 23 Mar 2013 21:14:46 +0100
+
+folks (0.9.1-1) experimental; urgency=low
+
+  * New upstream release
+  * debian/control: Bump gee and e-d-s build-depends
+  * debian/libfolks25.symbols: Updated
+  * debian/libfolks-eds25.symbols: Updated
+  * debian/control: Fix libfolks-dev depends on libgee for the new name
+
+ -- Sjoerd Simons <sjoerd@debian.org>  Fri, 15 Mar 2013 23:04:50 +0100
+
+folks (0.8.0-2) experimental; urgency=low
+
+  * debian/control: Add tighter dependencies between the plugins and the main
+    library (Closes: #678261)
+
+ -- Laurent Bigonville <bigon@debian.org>  Mon, 29 Oct 2012 21:47:39 +0100
+
+folks (0.8.0-1) experimental; urgency=low
+
+  * New upstream release
+  * Sync with Ubuntu:
+    * Install gsettings schema and gconf convert file into folks-common
+    * Update depends
+
+ -- Sjoerd Simons <sjoerd@debian.org>  Sat, 06 Oct 2012 00:01:01 +0200
+
+folks (0.6.9-1) unstable; urgency=low
+
+  * New upstream release
+    - Bump libtelepathy-glib-dev build-dependency
+  * d/p/0001-tpf-persona-use-tp_connection_get_account.patch: Drop patch,
+    applied upstream
+  * debian/rules, debian/control: Use gir sequence and drop explicit call to
+    dh_girepository, also bump gobject-introspection Build-dependency
+  * debian/control: Bump Standards-Version to 3.9.3 (no further changes)
+
+ -- Laurent Bigonville <bigon@debian.org>  Wed, 02 May 2012 16:17:15 +0200
+
+folks (0.6.8-2) unstable; urgency=low
+
+  * d/p/0001-tpf-persona-use-tp_connection_get_account.patch
+    + Added, fixes crash when accounts are disconnecting/connecting
+  * Target unstable
+
+ -- Sjoerd Simons <sjoerd@debian.org>  Fri, 30 Mar 2012 20:03:30 +0200
+
+folks (0.6.8-1) experimental; urgency=low
+
+  * New upstream release
+  * debian/control: Bump vala depends to >= 0.15.2
+  * debian/libfolks25.symbols: Updated
+  * debian/libfolks-eds25.symbols: Updated
+
+ -- Sjoerd Simons <sjoerd@debian.org>  Tue, 27 Mar 2012 10:29:00 +0200
+
+folks (0.6.6-1) unstable; urgency=low
+
+  [ Sjoerd Simons ]
+  * debian/control: Make libfolks-eds depend on evolution-data-server
+    (>= 3.2.0)
+
+  [ Laurent Bigonville ]
+  * New upstream release
+  * debian/control:
+    - Bump gobject-introspection build-dependencies
+    - Move gir package to Section: introspection
+    - Add folks-common package to install translations
+  * debian/*.symbols: Adjust .symbols file
+  * debian/rules: Pass LDFLAGS to limit runtime dependencies
+  * debian/source/options: Drop file, use default compression for debian
+    tarball
+
+ -- Laurent Bigonville <bigon@debian.org>  Sat, 17 Dec 2011 16:23:35 +0100
+
+folks (0.6.5-2) experimental; urgency=low
+
+  * debian/control, debian/rules: enable e-d-s backend
+  * debian/gbp.conf: use xz compression
+  * debian/control: Let libfolks25 recommend the EDS backend
+
+ -- Sjoerd Simons <sjoerd@debian.org>  Sun, 13 Nov 2011 14:03:39 +0100
+
+folks (0.6.5-1) unstable; urgency=low
+
+  * New upstream release
+  * debian/libfolks25.symbols: Updated
+  * debian/gbp.conf: use xz compression
+  * Fixes contact linking with the keyfile primary store (Closes: #645950)
+
+ -- Sjoerd Simons <sjoerd@debian.org>  Sun, 13 Nov 2011 13:19:15 +0100
+
+folks (0.6.3.2-2) unstable; urgency=low
+
+  * debian/rules: Call dh_strip for folks-tools package
+  * debian/gbp.conf: Switch to unstable branch
+  * debian/control:
+    - Add libncurses5-dev build-dependency
+    - Fix duplicate description
+  * debian/watch: Switch to .xz tarball
+
+ -- Laurent Bigonville <bigon@debian.org>  Thu, 13 Oct 2011 21:02:50 +0200
+
+folks (0.6.3.2-1) experimental; urgency=low
+
+  * New upstream release
+
+ -- Sjoerd Simons <sjoerd@debian.org>  Sat, 01 Oct 2011 13:50:35 +0100
+
+folks (0.6.3-1) experimental; urgency=low
+
+  * New upstream release
+  * debian/libfolks25.symbols
+    + Updated
+
+ -- Sjoerd Simons <sjoerd@debian.org>  Sun, 18 Sep 2011 23:18:07 +0100
+
+folks (0.6.2-2) experimental; urgency=low
+
+  * Add folks-tools package with folks-inspect and folks-import
+
+ -- Sjoerd Simons <sjoerd@debian.org>  Sat, 17 Sep 2011 01:04:11 +0100
+
+folks (0.6.2-1) experimental; urgency=low
+
+  [ Laurent Bigonville ]
+  * New upstream stable release.
+  * debian/control: Bump vala build-dependency
+
+  [ Sjoerd Simons ]
+  * debian/libfolks25.symbols: Update symbols
+
+ -- Sjoerd Simons <sjoerd@debian.org>  Sat, 17 Sep 2011 00:21:08 +0100
+
+folks (0.6.1-1) experimental; urgency=low
+
+  * New upstream stable release.
+  * debian/rules:
+    - List missing files during build
+    - Re-enable source rebuild
+    - Call dh_girepository after dh_shlibdeps
+  * debian/control:
+    - Bump vala build-dependency to 0.3.13
+    - Bump Standards-Version to 3.9.2 (no further changes)
+    - Add gir1.2-folks-0.6 package
+    - Bump libgee-dev {build-}dependency to (>= 0.6.1-3~) to be sure GIR
+      bindings are generated
+
+ -- Laurent Bigonville <bigon@debian.org>  Thu, 01 Sep 2011 13:47:50 +0200
+
+folks (0.6.0-1) experimental; urgency=low
+
+  * New upstream stable release.
+    + debian/patches/01_add_missing_deps_file.patch:
+      - Removed, shipped in the new tarball.
+    + debian/control,
+      debian/rules,
+      debian/libfolks*{24,25}.*:
+      - Updated for the new SONAME and symbols.
+    + debian/rules:
+      - Don't build the eds backend for now as we don't have e-d-s 3.0.1.
+      - Don't rebuild sources for now as we don't have vala 0.13 yet.
+
+ -- Emilio Pozuelo Monfort <pochu@debian.org>  Tue, 16 Aug 2011 12:32:03 +0100
+
+folks (0.5.2-1) experimental; urgency=low
+
+  * New upstream development release.
+    + debian/control:
+      - Update build dependencies.
+    + debian/patches/01_add_missing_deps_file.patch:
+      - Add a file missing from the tarball that causes a FTBFS because
+        valac doesn't look for telepathy-glib bindings.
+    + debian/control,
+      debian/rules,
+      debian/libfolks*{22,24}.*:
+      - Updated for the new SONAME and symbols.
+  * debian/gbp.conf:
+    + Updated for the new experimental branches.
+
+ -- Emilio Pozuelo Monfort <pochu@debian.org>  Wed, 08 Jun 2011 13:00:16 +0100
+
+folks (0.4.2-2) unstable; urgency=low
+
+  * Upload to unstable
+
+ -- Laurent Bigonville <bigon@debian.org>  Mon, 11 Apr 2011 16:59:34 +0200
+
+folks (0.4.2-1) experimental; urgency=low
+
+  * New upstream bugfix release.
+
+ -- Emilio Pozuelo Monfort <pochu@debian.org>  Thu, 24 Mar 2011 16:44:10 +0000
+
+folks (0.4.1-1) experimental; urgency=low
+
+  * New upstream bugfix release
+
+ -- Sjoerd Simons <sjoerd@debian.org>  Sat, 19 Mar 2011 17:10:15 +0000
+
+folks (0.4.0-1) experimental; urgency=low
+
+  * New upstream stable release.
+    - debian/control,
+      debian/rules,
+      debian/libfolks*{21,22}.*:
+      + Updated for the new SONAME.
+
+ -- Emilio Pozuelo Monfort <pochu@debian.org>  Wed, 16 Mar 2011 13:07:45 +0000
+
+folks (0.3.6-1) experimental; urgency=low
+
+  * New upstream release.
+    - debian/control:
+      + Bump vala build dependency.
+    - debian/control,
+      debian/rules,
+      debian/libfolks*{20,21}.*:
+      + Updated for the new SONAME.
+  * debian/rules:
+    - Fail the build if the symbols files are outdated.
+
+ -- Emilio Pozuelo Monfort <pochu@debian.org>  Mon, 21 Feb 2011 10:49:58 +0000
+
+folks (0.3.4-1) experimental; urgency=low
+
+  * debian/control:
+    - s/developpement/development/, thanks Will Thompson. Closes: #608276.
+  * New upstream release.
+    - debian/control,
+      debian/rules,
+      debian/libfolks*{19,20}.*:
+      + Updated for the new SONAME.
+  * debian/libfolks-dev.install,
+    debian/libfolks-telepathy-dev.install:
+    - Install the vala dev files.
+
+ -- Emilio Pozuelo Monfort <pochu@debian.org>  Tue, 01 Feb 2011 18:28:05 +0000
+
+folks (0.3.3-1) experimental; urgency=low
+
+  * New upstream release.
+    - debian/control,
+      debian/rules,
+      debian/libfolks*1[89].*:
+      + Updated for the new SONAME.
+  * debian/control:
+    - Add myself to Uploaders.
+  * debian/libfolks{,-telepathy}19.symbols:
+    - Add Build-Depends-Package.
+
+ -- Emilio Pozuelo Monfort <pochu@debian.org>  Tue, 14 Dec 2010 17:30:05 +0100
+
+folks (0.3.2-1) experimental; urgency=low
+
+  [ Emilio Pozuelo Monfort ]
+  * New upstream release.
+    - debian/rules:
+      + Build from the Vala sources.
+    - debian/control:
+      + Bump build dependencies.
+    - debian/control,
+      debian/rules,
+      debian/libfolks*1[68].*:
+      + Updated for the new SONAME.
+
+  [ Laurent Bigonville ]
+  * debian/control: Add intltool build-dependency
+  * debian/rules: Drop unused --enable-introspection configure flag
+
+ -- Laurent Bigonville <bigon@debian.org>  Tue, 16 Nov 2010 01:37:48 +0100
+
+folks (0.3.1-1) experimental; urgency=low
+
+  [ Laurent Bigonville ]
+  * New upstream release
+    - debian/control:
+      + Bump build-dependencies
+      + Add minimal version for gobject-introspection build-dependency
+      + Bump libtelepathy-glib-dev dependency against libfolks-telepathy-dev
+  * Adjust both .symbols files
+
+  [ Sjoerd Simons ]
+  * Don't run the tests for now
+
+ -- Laurent Bigonville <bigon@debian.org>  Thu, 04 Nov 2010 15:37:37 +0100
+
+folks (0.1.16-1) experimental; urgency=low
+
+  [ Laurent Bigonville ]
+  * debian/control: Build-depends against valac-0.10 instead of valac
+
+  [ Sjoerd Simons ]
+  * New upstream release
+  * d/p/0001-tp-lowlevel-doesn-t-actually-depend-upon-the-Gee-int.patch:
+    - Removed, merged upstream
+
+ -- Sjoerd Simons <sjoerd@debian.org>  Wed, 01 Sep 2010 22:17:28 +0100
+
+folks (0.1.15-1) experimental; urgency=low
+
+  * New upstream release
+  * debian/control:
+    - Bump vala build-dependencies
+  * Enable introspection support
+  * debian/libfolks0.symbols: Add new symbols
+  * debian/libfolks0.install: Install new key-file backend
+  * d/p/0001-tp-lowlevel-doesn-t-actually-depend-upon-the-Gee-int.patch:
+    - Remove the need of Gee-1.0 gir file (taken from upstream)
+  * debian/rules: Exclude new backend for dh_makeshlibs call
+
+ -- Laurent Bigonville <bigon@debian.org>  Mon, 30 Aug 2010 11:59:15 +0200
+
+folks (0.1.13-1) experimental; urgency=low
+
+  * New upstream release
+  * debian/control: Bump libtelepathy-glib-dev {build-}dependency
+  * debian/libfolks0.symbols: Update symbols file
+  * debian/rules: Fix -X path for dh_makeshlibs call
+
+ -- Laurent Bigonville <bigon@debian.org>  Mon, 16 Aug 2010 22:15:50 +0200
+
+folks (0.1.12-1) experimental; urgency=low
+
+  * New upstream release
+  * Update symbols file
+
+ -- Sjoerd Simons <sjoerd@debian.org>  Tue, 03 Aug 2010 13:45:09 +0100
+
+folks (0.1.11-1) experimental; urgency=low
+
+  [ Sjoerd Simons ]
+  * New upstream release
+  * Update symbol files
+
+  [ Laurent Bigonville ]
+  * debian/control: Bump libtelepathy-glib-dev {build-}dependency as we really
+    need the version from experimental
+  * Bump Standards-Version to 3.9.1 (no further changes)
+
+ -- Sjoerd Simons <sjoerd@debian.org>  Wed, 28 Jul 2010 16:00:15 +0200
+
+folks (0.1.10-1) experimental; urgency=low
+
+  * Initial release (Closes: #589216)
+
+ -- Laurent Bigonville <bigon@debian.org>  Sun, 18 Jul 2010 23:32:26 +0200

@@ -1,0 +1,2 @@
+usr/lib/*/folks/*/backends/dummy/*.so
+usr/lib/*/libfolks-dummy.so.*
